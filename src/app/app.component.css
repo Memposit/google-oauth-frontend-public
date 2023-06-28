@@ -1,0 +1,10 @@
+.header-img-card {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: auto;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
