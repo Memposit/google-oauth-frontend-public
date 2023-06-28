@@ -1,0 +1,33 @@
+<div class="container">
+	<h5 class="text-center mt-3">Services</h5>
+	<div class="d-flex my-2">
+		<a href="#" routerLink="/services/add" class="btn btn-outline-success ms-auto">Create New Services</a>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-bordered p-0 m-0">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Name</th>
+					<th scope="col">Price</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr scope="row" *ngFor="let service of services">
+					<td>{{ service?.id }}</td>
+					<td>{{ service?.name }}</td>
+					<td>{{ service?.price}}</td>
+					<td>{{ service?.validFrom | date: 'dd/MM/yyyy'}}</td>
+					<td><a href="#" [routerLink]="['/services/', service.id, 'view']" class="btn btn-info m-1">View</a>
+            <a href="#" [routerLink]="['/services/', service.id, 'edit']" class="btn btn-primary m-1">Edit</a>
+            <a href="#" [routerLink]="['/services/', service.id, 'delete']" class="btn btn-primary m-1">Delete</a>
+				</tr>
+				<tr scope="row" *ngIf="services.length === 0">
+					<td colspan="6" class="text-center">No record found</td>
+				</tr>
+			</tbody>
+		</table>
+		<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" [length]="totalElements" (page)="nextPage($event)"> </mat-paginator>
+	</div>
+</div>

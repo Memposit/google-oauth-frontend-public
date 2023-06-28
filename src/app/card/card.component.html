@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="card m-3">
+    <div class="card-body">
+      <div class="p-2 m-1" id="card-element">
+      </div>
+      <small style="display: block;" class="text-danger">
+        {{cardError}}
+      </small>
+    </div>
+    <button class="btn btn-primary" (click)="createCharge()">Submit</button>
+  </div>
+  <div *ngIf="charge" class="alert alert-success">
+    <h5>Successfully Created Charge</h5>
+    <p>Charge Id: {{charge.id}}</p>
+  </div>
+  <div *ngIf="chargeError" class="alert alert-danger">
+    <h5>A Stripe Error Occurred</h5>
+    <p>{{chargeError.error}}</p>
+  </div>
+</div>
